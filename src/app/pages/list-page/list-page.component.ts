@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./list-page.component.sass']
 })
 export class ListPageComponent {
-
+    
 }

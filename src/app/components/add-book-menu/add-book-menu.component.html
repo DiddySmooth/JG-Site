@@ -1,0 +1,53 @@
+<mat-card class="bookContainer">
+    <mat-card-header>
+        <mat-card-title>Add Book</mat-card-title>
+      </mat-card-header>
+    <form #createBook='ngForm' (ngSubmit)="handleSubmit(createBook.value)"class="bookForm" >
+        <div class="formContainer">
+            <mat-form-field class="doubleForm">
+                <mat-label>Title</mat-label>
+                <input matInput type="text" name="title" [value]="book.title" ngModel>
+            </mat-form-field>
+            <mat-form-field class="doubleForm">
+                <mat-label>Author</mat-label>
+                <input matInput type="text" name="author" [value]="book.author" ngModel>
+            </mat-form-field>
+        </div>
+        <div class="formContainer">
+            <mat-form-field class="tripleForm">
+                <mat-label>Page Count</mat-label>
+                <input matInput type="text" name="pageCount" [value]="book.pageCount" ngModel>
+            </mat-form-field>
+            <mat-form-field class="tripleForm">
+                <mat-label>Publisher</mat-label>
+                <input matInput type="text" name="publisher" [value]="book.publisher" ngModel>
+            </mat-form-field>
+            <mat-form-field class="tripleForm">
+                <mat-label>Year Published YYYY/MM/DD</mat-label>
+                <input matInput type="text" name="publishYear" [value]="book.publishYear" ngModel>
+            </mat-form-field>
+        </div>
+        <div class="formContainer">
+            <mat-form-field class="doubleForm">
+                <mat-label>Genre</mat-label>
+                <input matInput type="text" name="genre" [value]="book.genre" ngModel>
+            </mat-form-field>
+            <mat-form-field class="doubleForm">
+                <mat-label>Cover Image</mat-label>
+                <input matInput type="text" name="coverImg" [value]="book.coverImg" ngModel>
+            </mat-form-field>
+        </div>
+        <div class="formContainer">
+            <mat-form-field class="doubleForm">
+                <mat-label>Name of the Series</mat-label>
+                <input matInput type="text" name="seriesName" [value]="book.seriesName" ngModel>
+            </mat-form-field>
+            <mat-form-field class="doubleForm">
+                <mat-label>Series Number</mat-label>
+                <input matInput type="text" name="seriesNumber" [value]="book.seriesNumber" ngModel>
+            </mat-form-field>
+        </div>
+        
+        <button mat-raised-button color="primary" type="submit" value="submit">Submit</button>
+    </form>
+</mat-card>
