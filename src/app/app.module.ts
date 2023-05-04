@@ -14,13 +14,17 @@ import { FormsModule } from '@angular/forms';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { LibraryGalleryComponent } from './components/library-gallery/library-gallery.component';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListPageComponent,
     LibraryPageComponent,
-    AddBookMenuComponent
+    AddBookMenuComponent,
+    LibraryGalleryComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +36,9 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     MatCardModule,
     MatButtonModule,
-    HttpClientModule
+    HttpClientModule,
+    MatButtonToggleModule,
+    MatGridListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

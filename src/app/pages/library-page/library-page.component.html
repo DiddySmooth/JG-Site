@@ -1,3 +1,10 @@
-<div class="libaryPage">
-    <app-add-book-menu class="addMenu"></app-add-book-menu>
+<div class="libraryPage">
+    <mat-button-toggle-group name="fontStyle" aria-label="Font Style" class="buttonGroup" [(ngModel)]="tab">
+        <mat-button-toggle value="Library">Library</mat-button-toggle>
+        <mat-button-toggle value="Add">Add Book</mat-button-toggle>
+    </mat-button-toggle-group>
+    <div style="margin-top: 100px; width: 100%">
+        <app-add-book-menu *ngIf="tab === 'Add'" class="addMenu"></app-add-book-menu>
+        <app-library-gallery *ngIf="tab === 'Library'"></app-library-gallery>
+    </div>
 </div>

@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./library-page.component.sass']
 })
 export class LibraryPageComponent {
-
+    tab: string = "Library"
 }

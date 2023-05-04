@@ -9,7 +9,7 @@ export class BookService {
   constructor(private http: HttpClient) { }
 
   public createBook(book){
-    return this.http.post<any>(`http://localhost:3000/book/create`, {
+    return this.http.post<any>(`https://jgmainapi.azurewebsites.net/book/create`, {
         title: book.title,
         author: book.author,
         pageCount: parseInt(book.pageCount),
@@ -21,4 +21,8 @@ export class BookService {
         publisher: book.publisher
     })
   }
+  public getAllBooks(){
+    return this.http.get<any>(`https://jgmainapi.azurewebsites.net/book/getAll`)
+  }
+
 }
