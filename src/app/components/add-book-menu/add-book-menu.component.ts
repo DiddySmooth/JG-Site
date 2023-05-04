@@ -16,7 +16,7 @@ export class AddBookMenuComponent {
         author: "",
         pageCount: "",
         coverImg: "",
-        publishYear: "",
+        publishDate: "",
         seriesName: "",
         seriesNumber: "",
         genre: "",
