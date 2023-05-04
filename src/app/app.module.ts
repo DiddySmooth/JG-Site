@@ -17,6 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { LibraryGalleryComponent } from './components/library-gallery/library-gallery.component';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { EditBookMenuComponent } from './components/edit-book-menu/edit-book-menu.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
     ListPageComponent,
     LibraryPageComponent,
     AddBookMenuComponent,
-    LibraryGalleryComponent
+    LibraryGalleryComponent,
+    EditBookMenuComponent
   ],
   imports: [
     BrowserModule,

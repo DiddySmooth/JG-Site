@@ -25,4 +25,18 @@ export class BookService {
     return this.http.get<any>(`https://jgmainapi.azurewebsites.net/book/getAll`)
   }
 
+  public updateBook(book){
+    return this.http.put<any>(`https://jgmainapi.azurewebsites.net/book/update`, {
+        id: book.id,
+        title: book.title,
+        author: book.author,
+        pageCount: parseInt(book.pageCount),
+        coverImg: book.coverImg,
+        publishDate: book.publishDate,
+        seriesName: book.seriesName,
+        seriesNumber: book.seriesNumber,
+        genre: book.genre,
+        publisher: book.publisher
+    })
+  }
 }

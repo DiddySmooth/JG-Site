@@ -8,6 +8,8 @@ import { BookService } from 'src/app/services/book.service';
 })
 export class LibraryGalleryComponent implements OnInit{
     data
+    currentBook
+    displayPopup = false
     constructor(
         private bookService: BookService
     ){}
@@ -16,5 +18,14 @@ export class LibraryGalleryComponent implements OnInit{
             this.data = s.books
             console.log(s.books)
         })  
+    }
+    handleClick(book){
+        console.log(book)
+        this.currentBook = book
+        this.displayPopup = true
+    }
+
+    async handleClose(): Promise<void>{
+        this.displayPopup = false
     }
 }

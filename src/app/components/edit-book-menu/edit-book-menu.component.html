@@ -1,0 +1,55 @@
+<mat-card class="bookContainer">
+    <mat-card-header>
+        <mat-card-title>Add Book</mat-card-title>
+      </mat-card-header>
+    <form #createBook='ngForm' (ngSubmit)="handleSubmit(title.value, author.value, pageCount.value, publisher.value, publishDate.value, genre.value, coverImg.value, seriesName.value,seriesNumber.value )"class="bookForm" >
+        <div class="formContainer">
+            <mat-form-field class="doubleForm">
+                <mat-label>Title</mat-label>
+                <input #title matInput type="text" name="title" [value]="book.title">
+            </mat-form-field>
+            <mat-form-field class="doubleForm">
+                <mat-label>Author</mat-label>
+                <input #author matInput type="text" name="author" [value]="book.author">
+            </mat-form-field>
+        </div>
+        <div class="formContainer">
+            <mat-form-field class="tripleForm">
+                <mat-label>Page Count</mat-label>
+                <input #pageCount matInput type="text" name="pageCount" [value]="book.pageCount">
+            </mat-form-field>
+            <mat-form-field class="tripleForm">
+                <mat-label>Publisher</mat-label>
+                <input #publisher matInput type="text" name="publisher" [value]="book.publisher">
+            </mat-form-field>
+            <mat-form-field class="tripleForm">
+                <mat-label>Year Published YYYY/MM/DD</mat-label>
+                <input #publishDate matInput type="text" name="publishDate" [value]="book.publishDate">
+            </mat-form-field>
+        </div>
+        <div class="formContainer">
+            <mat-form-field class="doubleForm">
+                <mat-label>Genre</mat-label>
+                <input #genre matInput type="text" name="genre" [value]="book.genre">
+            </mat-form-field>
+            <mat-form-field class="doubleForm">
+                <mat-label>Cover Image</mat-label>
+                <input #coverImg matInput type="text" name="coverImg" [value]="book.coverImg">
+            </mat-form-field>
+        </div>
+        <div class="formContainer">
+            <mat-form-field class="doubleForm">
+                <mat-label>Series</mat-label>
+                <input #seriesName matInput type="text" name="seriesName" [value]="book.seriesName">
+            </mat-form-field>
+            <mat-form-field class="doubleForm">
+                <mat-label>Series Number</mat-label>
+                <input #seriesNumber matInput type="text" name="seriesNumber" [value]="book.seriesNumber">
+            </mat-form-field>
+        </div>
+        <button mat-raised-button color="primary" type="submit" value="submit">Submit</button>
+    </form>
+</mat-card>
+<button mat-mini-fab color="primary" class="closeButton" aria-label="Example icon button with a menu icon" (click)="handleClosed()" >
+    <mat-icon>close</mat-icon>
+</button>

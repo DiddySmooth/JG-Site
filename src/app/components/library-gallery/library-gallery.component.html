@@ -1,16 +1,21 @@
 <h1>Gallery</h1>
-<mat-grid-list cols="2" rowHeight="2:1" style="width: 100%">
-    <mat-grid-tile *ngFor="let book of data" style="width: 20vw">
-        <div>
+<mat-grid-list cols="5" rowHeight="500px" style="width: 100%">
+    <mat-grid-tile *ngFor="let book of data" (click)="handleClick(book)">
+        <mat-card class="galleryCard">
+            <div>
+                <mat-card-content>{{book.title}}</mat-card-content>
+            </div>
+            <!-- <mat-card-content>Simple card</mat-card-content>
             <p>Title: {{book.title}}</p>
-            <p>Author: {{book.author}}</p>
-            <p>Page Count: {{book.pageCount}}</p>
+            <p>Author: {{book.author}}</p> -->
+            <!-- <p>Page Count: {{book.pageCount}}</p>
             <p>Publication Date: {{book.publishDate}}</p>
             <p>Series: {{book.seriesName}}</p>
             <p>Series Order: {{book.seriesNumber}}</p>
             <p>Genre: {{book.genre}}</p>
-            <p>Publisher: {{book.publisher}}</p>
-        </div>
-    <img [src]="book.coverImg" class="cover"/> 
-</mat-grid-tile>
+            <p>Publisher: {{book.publisher}}</p> -->
+            <img [src]="book.coverImg" class="cover" />
+        </mat-card>
+    </mat-grid-tile>
 </mat-grid-list>
+<app-edit-book-menu *ngIf="displayPopup" class="editMenu" (whenClose)="handleClose()" [book]="currentBook"></app-edit-book-menu>
