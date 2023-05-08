@@ -1,1 +1,16 @@
-<p>list-page works!</p>
+<h1 style="color: white">Welcome {{currentUser}}</h1>>
+<mat-form-field appearance="fill">
+    <mat-label>Choose an option</mat-label>
+    <mat-select>
+        <mat-option *ngFor="let user of users" value="user" (click)="handleUserSelect(user)">{{user.name}}</mat-option>
+    </mat-select>
+</mat-form-field>
+<mat-form-field *ngIf="currentUser" appearance="fill">
+    <mat-label>Choose an option</mat-label>
+    <mat-select>
+        <mat-option *ngFor="let list of userLists" value="user" (click)="handleListSelect(list)">{{list.listType}}</mat-option>
+    </mat-select>
+</mat-form-field>
+<div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+    <div class="example-box" style="color: white" *ngFor="let book of books" cdkDrag>{{book.Book.title}}</div>
+</div>

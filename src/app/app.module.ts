@@ -18,7 +18,8 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { LibraryGalleryComponent } from './components/library-gallery/library-gallery.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { EditBookMenuComponent } from './components/edit-book-menu/edit-book-menu.component';
-
+import {MatAutocompleteModule} from '@angular/material/autocomplete'
+import {MatSelectModule} from '@angular/material/select';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +41,9 @@ import { EditBookMenuComponent } from './components/edit-book-menu/edit-book-men
     MatButtonModule,
     HttpClientModule,
     MatButtonToggleModule,
-    MatGridListModule
+    MatGridListModule,
+    MatAutocompleteModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

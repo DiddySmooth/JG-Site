@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class LibraryPageComponent {
     tab: string = "Library"
+    add
+    handleClick() {
+        this.add = true
+    }
+    async handleClose(): Promise<void>{
+        this.add = false
+    }
 }
