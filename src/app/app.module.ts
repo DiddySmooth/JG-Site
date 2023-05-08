@@ -20,6 +20,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import { EditBookMenuComponent } from './components/edit-book-menu/edit-book-menu.component';
 import {MatAutocompleteModule} from '@angular/material/autocomplete'
 import {MatSelectModule} from '@angular/material/select';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +44,8 @@ import {MatSelectModule} from '@angular/material/select';
     MatButtonToggleModule,
     MatGridListModule,
     MatAutocompleteModule,
-    MatSelectModule
+    MatSelectModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

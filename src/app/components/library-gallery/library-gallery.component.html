@@ -1,8 +1,16 @@
 <div style="display:flex; flex-direction: column; align-items: center; justify-content: center;">
     <h1 style="color:white">Gallery</h1>
     <mat-grid-list cols="5" rowHeight="500px" style="width: 98%" gutterSize="16px">
-        <mat-grid-tile *ngFor="let book of data" (click)="handleClick(book)" >
+        <mat-grid-tile *ngFor="let book of data">
             <div class="galleryCard">
+                <button mat-mini-fab color="primary" class="addButton" aria-label="Example icon button with a menu icon"
+                    (click)="openAddBook(book)">
+                    <mat-icon>add</mat-icon>
+                </button>
+                <button mat-mini-fab color="primary" class="editButton"
+                    aria-label="Example icon button with a menu icon" (click)="handleClick(book)">
+                    <mat-icon>edit</mat-icon>
+                </button>
                 <h3 style="color: white">{{book.title}}</h3>
                 <img [src]="book.coverImg" class="cover" />
             </div>
@@ -10,4 +18,39 @@
     </mat-grid-list>
     <app-edit-book-menu *ngIf="displayPopup" class="editMenu" (whenClose)="handleClose()"
         [book]="currentBook"></app-edit-book-menu>
-</div>.
+</div>
+<div *ngIf="displayAddMenu" class="addBookMenu">
+    <h3 style="margin-top: 0px">Add Book</h3>
+    <mat-form-field appearance="fill">
+        <mat-label>Select User</mat-label>
+        <mat-select>
+            <mat-option *ngFor="let user of users" value="user"
+                (click)="handleUserSelect(user)">{{user.name}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Select List</mat-label>
+        <mat-select>
+            <mat-option *ngFor="let list of userLists" value="user"
+                (click)="pickList(list)">{{list.listType}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Raiting</mat-label>
+        <input matInput type="text" name="raiting" [(ngModel)]="raiting">
+    </mat-form-field>
+    <mat-checkbox [(ngModel)]="audioBook">Audio Book</mat-checkbox>
+    <mat-form-field>
+        <mat-label>Start Date YYYY/MM/DD</mat-label>
+        <input matInput type="text" name="startDate" [(ngModel)]="startDate">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>End Date YYYY/MM/DD</mat-label>
+        <input matInput type="text" name="endDate" [(ngModel)]="endDate">
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="addBook()">Submit</button>
+    <button mat-mini-fab color="primary" class="closeButton" aria-label="Example icon button with a menu icon"
+        (click)="closeAdd()">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
