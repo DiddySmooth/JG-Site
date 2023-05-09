@@ -21,6 +21,7 @@ import { EditBookMenuComponent } from './components/edit-book-menu/edit-book-men
 import {MatAutocompleteModule} from '@angular/material/autocomplete'
 import {MatSelectModule} from '@angular/material/select';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +46,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatGridListModule,
     MatAutocompleteModule,
     MatSelectModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    DragDropModule
   ],
   providers: [],
   bootstrap: [AppComponent]

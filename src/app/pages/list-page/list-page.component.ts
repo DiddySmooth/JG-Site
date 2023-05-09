@@ -36,8 +36,9 @@ export class ListPageComponent implements OnInit{
             this.books = s
         }))
     }
-    drop(event) {
+    drop(event: CdkDragDrop<string[]>) {
         moveItemInArray(this.books, event.previousIndex, event.currentIndex);
-      }
+        console.log(this.books)
+    }
 
 }

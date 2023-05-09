@@ -12,5 +12,7 @@
     </mat-select>
 </mat-form-field>
 <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
-    <div class="example-box" style="color: white" *ngFor="let book of books" cdkDrag>{{book.Book.title}}</div>
+    <div class="example-box"  *ngFor="let book of books" cdkDrag >
+        <h3 style="margin:0px; color: black">{{book.Book.title}}</h3>
+    </div>
 </div>
