@@ -22,6 +22,7 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete'
 import {MatSelectModule} from '@angular/material/select';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {DragDropModule} from '@angular/cdk/drag-drop';
+import {MatMenuModule} from '@angular/material/menu'
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,7 +48,8 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
     MatAutocompleteModule,
     MatSelectModule,
     MatCheckboxModule,
-    DragDropModule
+    DragDropModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]
