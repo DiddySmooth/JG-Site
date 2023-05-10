@@ -23,11 +23,16 @@ export class ListService {
             audioBook: audioBook
         })
     }
-    public addRead(bookListId, startDate, endDate){
+    public addRead(bookListId, startDate, endDate) {
         return this.http.post<any>(`https://jgmainapi.azurewebsites.net/list/addread`, {
             bookListId: bookListId,
             startDate: startDate,
             endDate: endDate
+        })
+    }
+    public updateOrder(list) {
+        return this.http.put<any>(`https://jgmainapi.azurewebsites.net/list/order`, {
+            lists: list
         })
     }
 }

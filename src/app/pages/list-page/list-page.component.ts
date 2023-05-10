@@ -41,5 +41,16 @@ export class ListPageComponent implements OnInit{
         console.log(this.books)
         this.books.forEach((book, index) => book.index = index + 1)
     }
-
+    onSave(){
+        let saveList = []
+        this.books.forEach((book) => {
+            let update = {
+                id: book.id,
+                index: book.index
+            }
+            saveList.push(update)
+        })
+        console.log(saveList)
+        this.listService.updateOrder(saveList).subscribe()
+    }
 }
