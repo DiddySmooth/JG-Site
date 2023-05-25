@@ -20,20 +20,25 @@ export class ListPageComponent implements OnInit{
             console.log(s.users)
             this.users = s.users
         }))
+        if(localStorage.getItem('user')){
+            let user = {
+                id: localStorage.getItem('id'),
+                name: localStorage.getItem('user')
+            }
+            this.handleUserSelect(user)
+        }
     }
     myControl = new FormControl('');
     handleUserSelect(user){
         this.currentUser = user.name 
+        localStorage.setItem("user", user.name);
         this.listService.getUsersLists(user.id).subscribe((s => {
-            console.log(s)
             this.userLists = s
         }))
     }
     handleListSelect(list){
-        console.log(list)
         this.listService.getList(list.id).subscribe((s => {
-            console.log(s)
-            this.books = s
+            this.books = s.map(obj => ({...obj, expanded: false}))
         }))
     }
     drop(event: CdkDragDrop<string[]>) {
@@ -52,5 +57,13 @@ export class ListPageComponent implements OnInit{
         })
         console.log(saveList)
         this.listService.updateOrder(saveList).subscribe()
+    }
+    itemClicked(book){
+        console.log(book)
+        if(!book){
+            console.log("Working")
+        }
+        let list = document.getElementById(book)
+        console.log(list)
     }
 }

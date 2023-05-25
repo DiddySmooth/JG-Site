@@ -71,8 +71,10 @@ export class LibraryGalleryComponent implements OnInit{
                 console.log(s)
             })
         }))
+        this.closeAdd()
     }
     closeAdd(){
         this.displayAddMenu = false
     }
+    
 }

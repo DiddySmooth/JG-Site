@@ -34,7 +34,7 @@ export class EditBookMenuComponent implements OnInit{
         this.bookService.updateBook(newBook).subscribe((s) => {
             console.log(s)
         })
-        
+        this.handleClosed()
     }
     handleClosed(){
         this.whenClose.emit()

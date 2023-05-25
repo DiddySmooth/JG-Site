@@ -4,7 +4,8 @@
         <mat-form-field appearance="fill">
             <mat-label>Choose User</mat-label>
             <mat-select>
-                <mat-option *ngFor="let user of users" value="user" (click)="handleUserSelect(user)">{{user.name}}</mat-option>
+                <mat-option *ngFor="let user of users" value="user"
+                    (click)="handleUserSelect(user)">{{user.name}}</mat-option>
             </mat-select>
         </mat-form-field>
         <mat-form-field appearance="fill">
@@ -16,27 +17,55 @@
         </mat-form-field>
     </div>
     <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
-        <div class="example-box" *ngFor="let book of books" cdkDrag>
-            <h3 style="margin:0px; color: black">{{book.Book.title}}</h3>
-            <p>{{book.Book.author}}</p>
-            <p>{{book.index}}</p>
-            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-                <mat-icon>more_vert</mat-icon>
-              </button>
-              <mat-menu #menu="matMenu">
-                <button mat-menu-item>
-                  <mat-icon>dialpad</mat-icon>
-                  <span>Redial</span>
-                </button>
-                <button mat-menu-item disabled>
-                  <mat-icon>voicemail</mat-icon>
-                  <span>Check voice mail</span>
-                </button>
-                <button mat-menu-item>
-                  <mat-icon>notifications_off</mat-icon>
-                  <span>Disable alerts</span>
-                </button>
-              </mat-menu>
+        <div *ngFor="let book of books; let i = index" cdkDrag (click)="book.expanded = !book.expanded" [id]="i" style="background-color:black">
+            <div  class="basicBox" *ngIf="book.expanded === false"
+                [ngStyle]="{'background-color': 'hsl('+(360-(i * 10))+',50%, 50%)'}"
+                [style.box-shadow]="'hsla('+(360-(i * 10))+', 50%, 50%, 0.4) -5px 5px, hsla(' +(360-(i * 10))+', 50%, 50%, 0.3) -10px 10px , hsla(' +(360-(i * 10))+', 50%, 50%, 0.2) -15px 15px' "  
+            >
+                <h1 class="expandedBookTitle">{{book.Book.title}}</h1>
+                <h3 *ngIf="book.Book.seriesName" class="expandedBookSeries">{{book.Book.seriesName}} Book: {{book.Book.seriesNumber}}</h3>
+                <h3 class="expandedBookAuthor">Author: {{book.Book.author}}</h3>
+                <p class="bookIndex">{{book.index}}</p>
+            </div>
+            <div class="expandedBox" *ngIf="book.expanded === true" 
+                [style.box-shadow]="'hsla('+(360-(i * 10))+', 50%, 50%, 0.4) -5px 5px, hsla(' +(360-(i * 10))+', 50%, 50%, 0.3) -10px 10px , hsla(' +(360-(i * 10))+', 50%, 50%, 0.2) -15px 15px' " 
+                [style.background-color]="'hsl('+(360-(i * 10))+',50%, 50%)'"
+            >
+                <div class="expandedBookInfoContainer">
+                    <h1 class="expandedBookTitle">{{book.Book.title}}</h1>
+                    <h3 *ngIf="book.Book.seriesName" class="expandedBookSeries">{{book.Book.seriesName}} Book: {{book.Book.seriesNumber}}</h3>
+                    <h3 class="expandedBookAuthor">Author: {{book.Book.author}}</h3>
+                    <div class="horizontalLine"></div>
+                    <div class="expandedBookMiniContainer">
+                        <div style="display: flex; width: 100%">
+                            <div class="w-50">
+                                <p class="expandedBookMiniText">Genre: {{book.Book.genre}}</p>
+                                <p class="expandedBookMiniText">Page Count: {{book.Book.pageCount}}</p>
+                                <p class="expandedBookMiniText">
+                                    Audiobook
+                                    <input class="expandedBookAudioBookCheckbox" *ngIf="book.audioBook" type="checkbox"
+                                        checked>
+                                    <input class="expandedBookAudioBookCheckbox" *ngIf="!book.audioBook" type="checkbox">
+                                </p>
+                            </div>
+                            <div class="w-50">
+                                <p class="expandedBookMiniText">Release Date: {{book.Book.publishDate}}</p>
+                                <p class="expandedBookMiniText">Publisher: {{book.Book.publisher}}</p>
+                                <p class="expandedBookMiniText">Raiting: {{book.raiting}}</p>
+                            </div>
+                        </div>
+                        <div class="horizontalLine"></div>
+                        <h3 stlye="margin-bottom: 0px">Reads</h3>
+                        <div *ngFor="let read of book.Reads" stlye="width: 100%" class="expandedBookReadsContainer">
+                            <p class="w-50">Start Date: {{read.startDate}}</p>
+                            <p class="w-50">End Date: {{read.endDate}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="expandedBookCoverContainer">
+                    <img class="expandedBookCover" [src]="book.Book.coverImg">
+                </div>
+            </div>
         </div>
     </div>
 </div>
