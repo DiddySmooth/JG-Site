@@ -21,6 +21,7 @@
 </div>
 <div *ngIf="displayAddMenu" class="addBookMenu">
     <h3 style="margin-top: 0px">Add Book</h3>
+
     <mat-form-field appearance="fill">
         <mat-label>Select User</mat-label>
         <mat-select>
@@ -36,7 +37,7 @@
         </mat-select>
     </mat-form-field>
     <mat-form-field>
-        <mat-label>Raiting</mat-label>
+        <mat-label>Rating</mat-label>
         <input matInput type="text" name="raiting" [(ngModel)]="raiting">
     </mat-form-field>
     <mat-checkbox [(ngModel)]="audioBook">Audio Book</mat-checkbox>
@@ -48,6 +49,7 @@
         <mat-label>End Date YYYY/MM/DD</mat-label>
         <input matInput type="text" name="endDate" [(ngModel)]="endDate">
     </mat-form-field>
+
     <button mat-raised-button color="primary" (click)="addBook()">Submit</button>
     <button mat-mini-fab color="primary" class="closeButton" aria-label="Example icon button with a menu icon"
         (click)="closeAdd()">
