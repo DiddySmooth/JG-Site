@@ -19,19 +19,26 @@ export class ListPageComponent implements OnInit{
         this.userService.getAllUsers().subscribe((s => {
             console.log(s.users)
             this.users = s.users
-            this.handleUserSelect(s.users.find(f => f.id = window.localStorage.getItem("user")))
+            this.handleUserSelect(s.users.find(f => f.id == localStorage.getItem("user")))
+            console.log(s.users.find(f => f.id == localStorage.getItem("user")))
         }))
+        if(localStorage.getItem("list")){
+            var list = {
+                id: localStorage.getItem("list")
+            }
+            this.handleListSelect(list)
+        }
     }
     myControl = new FormControl('');
 
     handleUserSelect(user){
         this.currentUser = user.name 
-        localStorage.setItem("user", user.name);
         this.listService.getUsersLists(user.id).subscribe((s => {
             this.userLists = s
         }))
     }
     handleListSelect(list){
+        window.localStorage.setItem("list", list.id)
         this.listService.getList(list.id).subscribe((s => {
             this.books = s.map(obj => ({...obj, expanded: false}))
         }))
