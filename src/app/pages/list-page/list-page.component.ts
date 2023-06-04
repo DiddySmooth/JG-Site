@@ -19,16 +19,11 @@ export class ListPageComponent implements OnInit{
         this.userService.getAllUsers().subscribe((s => {
             console.log(s.users)
             this.users = s.users
+            this.handleUserSelect(s.users.find(f => f.id = window.localStorage.getItem("user")))
         }))
-        if(localStorage.getItem('user')){
-            let user = {
-                id: localStorage.getItem('id'),
-                name: localStorage.getItem('user')
-            }
-            this.handleUserSelect(user)
-        }
     }
     myControl = new FormControl('');
+
     handleUserSelect(user){
         this.currentUser = user.name 
         localStorage.setItem("user", user.name);

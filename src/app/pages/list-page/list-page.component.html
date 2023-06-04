@@ -2,13 +2,6 @@
     <h1 style="color: white">Welcome {{currentUser}}</h1>>
     <div class="listDropdownContainer">
         <mat-form-field appearance="fill">
-            <mat-label>Choose User</mat-label>
-            <mat-select>
-                <mat-option *ngFor="let user of users" value="user"
-                    (click)="handleUserSelect(user)">{{user.name}}</mat-option>
-            </mat-select>
-        </mat-form-field>
-        <mat-form-field appearance="fill">
             <mat-label>Choose List</mat-label>
             <mat-select>
                 <mat-option *ngFor="let list of userLists" value="user"
@@ -51,7 +44,7 @@
                             <div class="w-50">
                                 <p class="expandedBookMiniText">Release Date: {{book.Book.publishDate}}</p>
                                 <p class="expandedBookMiniText">Publisher: {{book.Book.publisher}}</p>
-                                <p class="expandedBookMiniText">Raiting: {{book.raiting}}</p>
+                                <p class="expandedBookMiniText">Rating: {{book.raiting}}</p>
                             </div>
                         </div>
                         <div class="horizontalLine"></div>
